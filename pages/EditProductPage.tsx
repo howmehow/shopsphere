@@ -162,7 +162,7 @@ const EditProductPage: React.FC = () => {
         <Button variant="ghost" size="sm" onClick={() => navigate(-1)} className="mr-4 !p-2" aria-label="Go back">
             <ArrowLeftIcon className="h-5 w-5"/>
         </Button>
-        <h1 className="text-3xl font-bold text-gray-800">Edit Product: <span className="text-indigo-600">{initialProduct?.name || 'Item'}</span></h1>
+        <h1 className="text-3xl font-bold text-gray-800">Edytuj produkt: <span className="text-indigo-600">{initialProduct?.name || 'Item'}</span></h1>
       </div>
 
       {successMessage && !error && (
@@ -180,15 +180,15 @@ const EditProductPage: React.FC = () => {
       
       {initialProduct && !error.includes("authorized") && !error.includes("No product ID") && (
       <form onSubmit={handleSubmit} className="space-y-6">
-        <Input label="Product Name*" name="name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="e.g. Premium Wireless Headphones" leftIcon={<TagIcon />} />
+        <Input label="Nazwa produktu*" name="name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="e.g. Premium Wireless Headphones" leftIcon={<TagIcon />} />
         
         <div className="p-4 bg-indigo-50 rounded-lg border border-indigo-200 space-y-3">
             <Input 
-                label="Keywords for AI Description (Optional)" 
+                label="Słowa klucze dla AI opisu (opcjonalne)"
                 name="keywords" 
                 value={keywords} 
                 onChange={(e) => setKeywords(e.target.value)} 
-                placeholder="e.g., noise-cancelling, bluetooth 5.0, long battery"
+                placeholder="e.g., noise-cancelling, bluetooth 5.0, żywotność baterii"
                 wrapperClassName="mb-0"
                 leftIcon={<SparklesIcon />}
             />
@@ -202,17 +202,17 @@ const EditProductPage: React.FC = () => {
                 leftIcon={<SparklesIcon className="h-5 w-5"/>}
                 className="w-full sm:w-auto"
             >
-                {isGeneratingDesc ? 'Generating Magic...' : 'Generate Description with AI'}
+                {isGeneratingDesc ? 'Generujemy Magię...' : 'Stwórz opis z AI'}
             </Button>
             <p className="text-xs text-indigo-700">
-              Tip: Provide a product name and/or keywords for better AI results. The AI will use the selected category too.
+              Tip: Podaj nazwę produktu i specyfikację żeby opis był lepszy.
             </p>
         </div>
 
-        <Textarea label="Description*" name="description" value={description} onChange={(e) => setDescription(e.target.value)} required rows={5} placeholder="Describe your product in detail..." />
+        <Textarea label="Opis*" name="description" value={description} onChange={(e) => setDescription(e.target.value)} required rows={5} placeholder="Opisz swój produkt w jak największej ilości detali..." />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
-          <Input label="Price (USD)*" name="price" type="number" step="0.01" min="0.01" value={price} onChange={(e) => setPrice(e.target.value)} required placeholder="e.g. 79.99" leftIcon={<CurrencyDollarIcon />} />
+          <Input label="Cena (PLN)*" name="price" type="number" step="0.01" min="0.01" value={price} onChange={(e) => setPrice(e.target.value)} required placeholder="e.g. 79.99" leftIcon={<CurrencyDollarIcon />} />
           <div>
             <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1.5">Category*</label>
             <div className="relative">
@@ -234,14 +234,14 @@ const EditProductPage: React.FC = () => {
         </div>
         
         <Input label="Image URL (Optional)" name="imageUrl" type="url" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="https://example.com/image.jpg (leave blank for placeholder)" leftIcon={<PhotoIcon />} />
-        <p className="text-xs text-gray-500 -mt-2">If no URL is provided, an attractive placeholder image will be used based on the product name.</p>
+        <p className="text-xs text-gray-500 -mt-2">Jeżeli będzie brakować zdjęcia to pokażemy randomowy obrazek z internetu.</p>
 
         <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-6 border-t border-gray-200">
           <Button type="button" variant="secondary" onClick={() => navigate('/seller/dashboard')} disabled={isSubmitting || isGeneratingDesc}>
-            Cancel
+            Anuluj
           </Button>
           <Button type="submit" isLoading={isSubmitting} disabled={isSubmitting || isGeneratingDesc} size="lg">
-            {isSubmitting ? 'Saving Changes...' : 'Save Changes'}
+            {isSubmitting ? 'Zapisywanie zmian...' : 'Zapisz'}
           </Button>
         </div>
       </form>
@@ -249,7 +249,7 @@ const EditProductPage: React.FC = () => {
       { (error.includes("authorized") || error.includes("No product ID")) && !successMessage && (
           <div className="text-center mt-6">
                <Link to="/seller/dashboard">
-                    <Button variant="primary">Back to Dashboard</Button>
+                    <Button variant="primary">Wróć do strony głównej</Button>
                 </Link>
           </div>
       )}

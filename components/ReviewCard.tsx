@@ -36,7 +36,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
             </div>
           </div>
           <p className="text-xs text-gray-500 mt-0.5">
-            Reviewed on: {new Date(review.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            Recenzja z: {new Date(review.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
         </div>
       </div>

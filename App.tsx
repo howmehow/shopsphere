@@ -10,7 +10,7 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import LoginPage from './pages/LoginPage';
 import SellerDashboardPage from './pages/SellerDashboardPage';
 import AddProductPage from './pages/AddProductPage';
-import EditProductPage from './pages/EditProductPage'; // Import EditProductPage
+import EditProductPage from './pages/EditProductPage';
 import ChatPage from './pages/ChatPage';
 import CartPage from './pages/CartPage';
 import CheckoutSuccessPage from './pages/CheckoutSuccessPage';
@@ -70,7 +70,7 @@ const App: React.FC = () => {
                 </Routes>
               </main>
               <footer className="bg-slate-800 text-slate-200 text-center p-6 mt-auto">
-                © {new Date().getFullYear()} ShopSphere. All rights reserved.
+                © {new Date().getFullYear()} ShopSphere.
               </footer>
             </div>
           </HashRouter>

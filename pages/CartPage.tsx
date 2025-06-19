@@ -28,11 +28,11 @@ const CartPage: React.FC = () => {
     return (
       <div className="text-center py-20 bg-white p-10 rounded-xl shadow-lg">
         <ShoppingCartIcon className="w-24 h-24 mx-auto text-gray-300 mb-6" />
-        <h1 className="text-3xl font-semibold text-gray-800 mb-3">Your Cart is Empty</h1>
-        <p className="text-gray-500 mb-8 text-lg">Looks like you haven't added anything to your cart yet.</p>
+        <h1 className="text-3xl font-semibold text-gray-800 mb-3">Twój koszyk jest pusty</h1>
+        <p className="text-gray-500 mb-8 text-lg">Wygląda na to że nic nie jest dodane do koszyka.</p>
         <Link to="/">
           <Button size="lg" variant="primary" leftIcon={<ArrowLeftIcon className="h-5 w-5"/>}>
-            Continue Shopping
+              Kontynuuj zakupy
           </Button>
         </Link>
       </div>
@@ -42,10 +42,10 @@ const CartPage: React.FC = () => {
   return (
     <div className="bg-white p-6 md:p-10 rounded-xl shadow-2xl max-w-4xl mx-auto">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 pb-6 border-b border-gray-200">
-        <h1 className="text-3xl font-bold text-gray-800">Your Shopping Cart ({getCartItemCount()} items)</h1>
+        <h1 className="text-3xl font-bold text-gray-800">Twój koszyk ({getCartItemCount()} rzeczy)</h1>
         {cartItems.length > 0 && (
-            <Button variant="danger" size="sm" onClick={() => { if(window.confirm('Are you sure you want to empty your cart?')) clearCart();}} leftIcon={<TrashIcon className="h-4 w-4"/>} className="mt-4 sm:mt-0">
-                Empty Cart
+            <Button variant="danger" size="sm" onClick={() => { if(window.confirm('Czy aby napewno?')) clearCart();}} leftIcon={<TrashIcon className="h-4 w-4"/>} className="mt-4 sm:mt-0">
+                Opróżnij koszyk
             </Button>
         )}
       </div>
@@ -123,11 +123,11 @@ const CartPage: React.FC = () => {
         <div className="mt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
            <Link to="/" className="w-full sm:w-auto">
                 <Button variant="secondary" size="lg" leftIcon={<ArrowLeftIcon className="h-5 w-5"/>} isFullWidth={window.innerWidth < 640}>
-                    Continue Shopping
+                    Kontynuuj zakupy
                 </Button>
             </Link>
             <Button onClick={handleCheckout} size="xl" isFullWidth={window.innerWidth < 640} className="w-full sm:w-auto">
-                Proceed to Checkout
+                Przejście do finalizacji
             </Button>
         </div>
       </div>

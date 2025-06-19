@@ -46,15 +46,15 @@ const Navbar: React.FC = () => {
               <>
                 <div className="flex items-center space-x-2">
                   <UserCircleIcon className="h-7 w-7 text-indigo-200" />
-                  <span className="font-medium">Hi, {user.username}!</span>
+                  <span className="font-medium">Witaj, {user.username}!</span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  title="Logout"
+                  title="Wyloguj"
                   className="flex items-center space-x-2 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 transform hover:scale-105"
                 >
                   <ArrowLeftOnRectangleIcon className="h-5 w-5" />
-                  <span>Logout</span>
+                  <span>Wyloguj</span>
                 </button>
               </>
             ) : (

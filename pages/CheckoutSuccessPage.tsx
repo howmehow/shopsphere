@@ -16,18 +16,17 @@ const CheckoutSuccessPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center min-h-[calc(100vh-250px)] py-12 bg-gradient-to-br from-green-50 via-teal-50 to-cyan-50 p-8 rounded-xl shadow-2xl">
       <CheckCircleIcon className="w-28 h-28 text-green-500 mb-8 animate-pulse" />
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-5">Order Confirmed!</h1>
+      <h1 className="text-4xl font-extrabold text-gray-800 mb-5">Zakup potwierdzony!</h1>
       <p className="text-gray-600 text-lg mb-10 max-w-md leading-relaxed">
-        Thank you for your purchase! Your items are (not really) on their way. 
-        You'll (not) receive an email confirmation shortly.
+        Skontaktujemy się z Tobą przez mail'a jeżeli chodzi o płatność i adres przesyłki!
       </p>
       <Link to="/">
         <Button variant="success" size="xl" leftIcon={<HomeIcon className="w-6 h-6"/>}>
-          Continue Shopping
+          Kontynuuj zakupy
         </Button>
       </Link>
       <p className="text-xs text-gray-400 mt-12">
-        ShopSphere - Where dreams (almost) come true.
+        ShopSphere
       </p>
     </div>
   );

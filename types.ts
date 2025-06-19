@@ -19,18 +19,17 @@ export interface Product {
 export interface Review {
   id: string;
   productId: string;
-  userId: string; // Could be anonymous or linked to a user concept
+  userId: string;
   userName: string;
-  rating: number; // 1-5
+  rating: number;
   comment: string;
-  createdAt: string; // ISO date string
+  createdAt: string;
 }
 
 export interface CartItem extends Product {
   quantity: number;
 }
 
-// For Gemini service
 export interface GeneratedDescription {
   description: string;
 }

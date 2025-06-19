@@ -29,7 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.name}
           </Link>
         </h3>
-        <p className="text-gray-500 text-xs mb-3">Sold by: <span className="font-medium text-gray-700">{product.sellerName}</span></p>
+        <p className="text-gray-500 text-xs mb-3">Sprzedawca: <span className="font-medium text-gray-700">{product.sellerName}</span></p>
         
         <div className="mt-auto">
             <p className="text-indigo-600 font-bold text-2xl mb-4">{product.price.toFixed(2)} PLN</p>

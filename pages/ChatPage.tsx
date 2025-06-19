@@ -359,7 +359,7 @@ const ChatPage: React.FC = () => {
               onClick={() => navigate(-1)}
               leftIcon={<ArrowUturnLeftIcon className="w-4 h-4" />}
             >
-              Back
+              Wróć
             </Button>
           </div>
         </div>
@@ -425,7 +425,7 @@ const ChatPage: React.FC = () => {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Type your message..."
+            placeholder="Twoja wiadomość..."
             className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
           <Button
@@ -433,11 +433,11 @@ const ChatPage: React.FC = () => {
             disabled={!newMessage.trim() || sending}
             leftIcon={<PaperAirplaneIcon className="w-4 h-4" />}
           >
-            {sending ? 'Sending...' : 'Send'}
+            {sending ? 'Wyślij...' : 'Wyślij'}
           </Button>
         </div>
         <p className="text-xs text-gray-500 mt-2">
-          Press Enter to send • Messages are saved to the database
+          Naciśnij Enter żeby wysłać wiadomość • Wiadomości są zapisywane
         </p>
       </div>
     </div>

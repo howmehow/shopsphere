@@ -172,12 +172,12 @@ const ProductDetailPage: React.FC = () => {
         <div className="flex flex-col">
           <span className="text-sm font-medium text-indigo-600 uppercase tracking-wider mb-1">{product.category}</span>
           <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-3">{product.name}</h1>
-          <p className="text-gray-500 text-sm mb-4">Sold by: <span className="text-gray-700 font-medium">{product.sellerName}</span></p>
+          <p className="text-gray-500 text-sm mb-4">Sprzedawca: <span className="text-gray-700 font-medium">{product.sellerName}</span></p>
           
           {reviews.length > 0 && (
             <div className="flex items-center mb-5">
               <StarRatingInput rating={averageRating} setRating={() => {}} disabled size="sm" />
-              <span className="ml-2 text-sm text-gray-600">({averageRating.toFixed(1)} average rating from {reviews.length} reviews)</span>
+              <span className="ml-2 text-sm text-gray-600">Średnia recenzji ({averageRating.toFixed(1)} z {reviews.length} recenzji)</span>
             </div>
           )}
           
@@ -193,7 +193,7 @@ const ProductDetailPage: React.FC = () => {
                 variant={addedToCartMessage || itemAlreadyInCart ? 'success' : 'primary'}
                 disabled={addedToCartMessage}
               >
-              {addedToCartMessage ? 'Added to Cart!' : itemAlreadyInCart ? 'Add More to Cart' : 'Add to Cart'}
+              {addedToCartMessage ? 'Added to Cart!' : itemAlreadyInCart ? 'Dodaj więcej do koszyka' : 'Dodaj do koszyka'}
             </Button>
             { itemAlreadyInCart && !addedToCartMessage && (
                 <Button size="md" variant="ghost" isFullWidth onClick={() => navigate('/cart')}>
@@ -201,7 +201,7 @@ const ProductDetailPage: React.FC = () => {
                 </Button>
             )}
             <Button variant="ghost" size="lg" isFullWidth leftIcon={<ChatBubbleLeftEllipsisIcon className="w-5 h-5"/>} onClick={handleChatWithSeller}>
-              Chat with Seller
+              Chat
             </Button>
           </div>
         </div>
@@ -211,7 +211,7 @@ const ProductDetailPage: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-3 sm:mb-0">Recenzje <span className="text-gray-500 font-normal">({reviews.length})</span></h2>
           <Button onClick={() => { setShowReviewForm(!showReviewForm); setReviewError(''); setReviewSuccess(''); }} variant={showReviewForm ? "secondary" : "primary"}>
-            {showReviewForm ? 'Cancel Review' : 'Write a Review'}
+            {showReviewForm ? 'Anuluj' : 'Napisz recenzje'}
           </Button>
         </div>
 
@@ -222,28 +222,28 @@ const ProductDetailPage: React.FC = () => {
           <form onSubmit={handleReviewSubmit} className="bg-gray-50 p-6 rounded-lg shadow-inner mb-10 space-y-5 border border-gray-200">
             <h3 className="text-xl font-medium text-gray-700">Podziel się opinią</h3>
             <Input 
-              label="Your Name*" 
+              label="Imie*"
               value={newReviewName} 
               onChange={(e) => setNewReviewName(e.target.value)} 
               placeholder="e.g. Jane D."
               required 
             />
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Your Rating*</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">Twoja ocena*</label>
               <StarRatingInput rating={newReviewRating} setRating={setNewReviewRating} size="md" />
             </div>
             <Textarea 
-              label="Your Comment*" 
+              label="Recenzja*"
               value={newReviewComment} 
               onChange={(e) => setNewReviewComment(e.target.value)} 
-              placeholder="What did you like or dislike? How did you use the product?"
+              placeholder="Co Ci się podobało w produkcie, a co nie? "
               rows={5} 
               required
             />
             {reviewError && isSubmittingReview && <p className="text-red-500 text-sm">{reviewError}</p>}
             <div className="flex justify-end">
                 <Button type="submit" isLoading={isSubmittingReview} disabled={isSubmittingReview} size="lg">
-                Submit Review
+                Wyślij
                 </Button>
             </div>
           </form>

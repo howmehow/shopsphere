@@ -42,15 +42,15 @@ const LoginPage: React.FC = () => {
                 <ShoppingBagIcon className="h-16 w-16 text-indigo-600 hover:text-indigo-700 transition-colors" />
             </RouterLink>
           <h2 className="text-3xl font-extrabold text-gray-900">
-            Account Login
+            Login
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Access your dashboard to manage products and connect with customers.
+            Połącz się ze światem e-commerce
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <Input
-            label="Username"
+            label="Nazwa użytkownika"
             name="username"
             type="text"
             autoComplete="username"
@@ -62,14 +62,14 @@ const LoginPage: React.FC = () => {
             disabled={currentIsLoading}
           />
           <Input
-            label="Password"
+            label="Hasło"
             name="password"
             type="password"
             autoComplete="current-password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter any password"
+            placeholder="Hasło"
             leftIcon={<LockClosedIcon />}
             disabled={currentIsLoading}
           />
@@ -85,13 +85,13 @@ const LoginPage: React.FC = () => {
                 size="lg"
                 rightIcon={<ArrowRightOnRectangleIcon className="w-5 h-5"/>}
             >
-              Sign In
+              Zaloguj
             </Button>
           </div>
         </form>
         <p className="mt-6 text-center text-sm text-gray-600">
-          Not a seller? <RouterLink to="/" className="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">
-            Continue Shopping
+          <RouterLink to="/" className="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">
+            Wróć do strony głównej
           </RouterLink>
         </p>
       </div>

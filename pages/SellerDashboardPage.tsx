@@ -67,11 +67,11 @@ const SellerDashboardPage: React.FC = () => {
     <div className="space-y-10">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl shadow-lg">
         <div>
-            <h1 className="text-3xl font-bold text-white">Welcome back, {user.username}!</h1>
-            <p className="text-indigo-100 mt-1">Manage your shop and connect with customers.</p>
+            <h1 className="text-3xl font-bold text-white">Witaj, {user.username}!</h1>
+            <p className="text-indigo-100 mt-1">Zarządzaj swoim sklepem.</p>
         </div>
         <Link to="/seller/add-product" className="mt-4 sm:mt-0">
-          <Button variant="secondary" size="lg" leftIcon={<PlusCircleIcon className="h-5 w-5"/>}>Add New Product</Button>
+          <Button variant="secondary" size="lg" leftIcon={<PlusCircleIcon className="h-5 w-5"/>}>Dodaj nowy produkt</Button>
         </Link>
       </div>
 
@@ -96,10 +96,10 @@ const SellerDashboardPage: React.FC = () => {
                 <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-100">
                     <tr>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                    <th scope="col" className="relative px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Produkt</th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategoria</th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cena</th>
+                    <th scope="col" className="relative px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Akcje</th>
                     </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -124,15 +124,12 @@ const SellerDashboardPage: React.FC = () => {
         <div className="bg-white p-6 rounded-xl shadow-xl">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center">
                 <ChatBubbleLeftRightIcon className="h-7 w-7 mr-2 text-indigo-600"/>
-                Customer Messages
+                Czaty z klientami
             </h2>
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
                 <ChatBubbleLeftRightIcon className="h-16 w-16 mx-auto text-gray-400 mb-4"/>
-                <p className="text-lg font-medium text-gray-700 mb-2">Real-time Chat Coming Soon!</p>
-                <p className="text-gray-500 mb-4">This section will display your conversations with customers.</p>
-                <Link to="/chat/seller-inbox-preview">
-                    <Button variant="ghost" size="sm">View Chat System Preview</Button>
-                </Link>
+                <p className="text-lg font-medium text-gray-700 mb-2">Czaty będą tutaj niedługo!</p>
+                <p className="text-gray-500 mb-4">Ta sekcja wyświetli nowe wiadomości od klientów</p>
             </div>
         </div>
 
@@ -148,8 +145,8 @@ const SellerDashboardPage: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-16 w-16 mx-auto text-gray-400 mb-4">
                      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
                 </svg>
-                <p className="text-lg font-medium text-gray-700 mb-2">Performance Metrics Coming Soon!</p>
-                <p className="text-gray-500">Track your sales, views, and top products here.</p>
+                <p className="text-lg font-medium text-gray-700 mb-2">Statystyki i analiza będą tu niedługo</p>
+                <p className="text-gray-500"></p>
             </div>
         </div>
       </div>

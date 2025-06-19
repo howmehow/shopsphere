@@ -70,21 +70,21 @@ const HomePage: React.FC = () => {
       <div className="bg-white p-6 rounded-xl shadow-lg">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4 items-end">
           <div className="relative col-span-1 md:col-span-1">
-            <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">Search</label>
+            <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">Szukaj</label>
             <div className="absolute inset-y-0 left-0 top-6 pl-3 flex items-center pointer-events-none">
                 <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
             </div>
             <input
                 type="text"
                 id="search"
-                placeholder="Search products, sellers..."
+                placeholder="Wyszukaj produkty, sprzedawców..."
                 className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           <div className="col-span-1 md:col-span-1">
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Kategorie</label>
             <div className="relative">
                 <select
                     id="category"
@@ -92,7 +92,7 @@ const HomePage: React.FC = () => {
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
                 >
-                    <option value="">All Categories</option>
+                    <option value="">Wszystkie kategorie</option>
                     {CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className="col-span-1 md:col-span-1">
-            <label htmlFor="sort" className="block text-sm font-medium text-gray-700 mb-1">Sort By</label>
+            <label htmlFor="sort" className="block text-sm font-medium text-gray-700 mb-1">Sortuj</label>
             <div className="relative">
                 <select
                     id="sort"
@@ -109,11 +109,11 @@ const HomePage: React.FC = () => {
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as any)}
                 >
-                    <option value="">Default</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
-                    <option value="name-asc">Name: A to Z</option>
-                    <option value="name-desc">Name: Z to A</option>
+                    <option value="">Domyślne</option>
+                    <option value="price-asc">Cena: Niska do Wysoka</option>
+                    <option value="price-desc">Cena: Wysoka do Niska</option>
+                    <option value="name-asc">Nazwa: A do Z</option>
+                    <option value="name-desc">Nazwa: Z do A</option>
                 </select>
                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <ChevronDownIcon className="h-5 w-5"/>
