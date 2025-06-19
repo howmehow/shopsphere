@@ -1,0 +1,34 @@
+create table chat_messages
+(
+    id           uuid default gen_random_uuid() not null
+        primary key,
+    room_id      uuid                           not null
+        constraint fk_chat_rooms_messages
+            references chat_rooms,
+    user_id      uuid                           not null
+        constraint fk_chat_messages_user
+            references users,
+    user_name    text                           not null,
+    message      text                           not null,
+    message_type text default 'text'::text
+        constraint chk_chat_messages_message_type
+            check (message_type = ANY (ARRAY ['text'::text, 'image'::text, 'file'::text])),
+    created_at   timestamp with time zone
+);
+
+alter table chat_messages
+    owner to postgres;
+
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('9dabfad5-3182-47c3-90f7-a6b3aeb4fe55', '0c75ce03-614f-4a7c-9ffa-33fde8fc4f69', 'e7bc18d6-d874-4691-a320-03aca6b87652', 'Alice', 'Co to za książka?', 'text', '2025-06-17 19:38:50.604979 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('4f41293a-4f8b-430e-9365-ac5bd111140d', 'f4ff6b92-e054-454e-babd-d9a93b82e863', 'e7bc18d6-d874-4691-a320-03aca6b87652', 'Alice', 'Hello', 'text', '2025-06-17 19:42:49.205701 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('bc886de3-a6d0-4549-9144-e52cdd0d2c55', '722f7ac9-ee2e-4aa4-9f29-25601ffb737d', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', 'SuperStore', 'Hello', 'text', '2025-06-17 19:43:24.940965 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('035c0e5f-9453-4e3e-b79d-fd7e63055504', '722f7ac9-ee2e-4aa4-9f29-25601ffb737d', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', 'SuperStore', 'Are you there', 'text', '2025-06-17 19:45:00.506476 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('137920f3-2313-47fb-88c0-456882c5917c', '722f7ac9-ee2e-4aa4-9f29-25601ffb737d', 'e7bc18d6-d874-4691-a320-03aca6b87652', 'Alice', 'Hello', 'text', '2025-06-17 19:48:27.491745 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('9b3aa6b3-871c-49ae-8c65-19a38253434e', '722f7ac9-ee2e-4aa4-9f29-25601ffb737d', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', 'SuperStore', 'How are you', 'text', '2025-06-17 19:48:34.004957 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('b68c8b44-ab73-4e88-9d11-25b3fd31c431', '6570193c-5fbb-4a25-aac9-95cad3f2c7f4', 'e7bc18d6-d874-4691-a320-03aca6b87652', 'Alice', 'Hejka', 'text', '2025-06-17 22:08:15.483844 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('8fae0e6c-47bd-456f-b897-18b59e33619f', '6570193c-5fbb-4a25-aac9-95cad3f2c7f4', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', 'SuperStore', 'Hej', 'text', '2025-06-17 22:08:37.966394 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('f305342b-a969-46ce-b2a8-1c5b5f4f1d19', '1369d9be-eabe-41e6-8438-4c9a5995d8a8', 'd9a76988-e0d1-4e68-901b-6780c3ca233d', 'GadgetGalaxy', 'Co się stanie?', 'text', '2025-06-17 22:09:18.707597 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('9cb5a3c0-af91-4cfe-8607-a1ce3584f633', '6570193c-5fbb-4a25-aac9-95cad3f2c7f4', 'e7bc18d6-d874-4691-a320-03aca6b87652', 'Alice', 'Co tam u Ciebie?', 'text', '2025-06-17 22:09:56.161788 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('5aa0f73c-a569-4dcc-aa1c-f3bfb928cb8d', '6570193c-5fbb-4a25-aac9-95cad3f2c7f4', 'e7bc18d6-d874-4691-a320-03aca6b87652', 'Alice', 'Można za darmo?', 'text', '2025-06-19 16:40:47.476859 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('798ddd08-4e54-4ef5-b2cc-7092672bec6b', '6570193c-5fbb-4a25-aac9-95cad3f2c7f4', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', 'SuperStore', 'Za darmo to nie', 'text', '2025-06-19 16:41:09.512665 +00:00');
+INSERT INTO public.chat_messages (id, room_id, user_id, user_name, message, message_type, created_at) VALUES ('57626f32-5a80-4795-b3ff-6dbb24928641', '6570193c-5fbb-4a25-aac9-95cad3f2c7f4', 'e7bc18d6-d874-4691-a320-03aca6b87652', 'Alice', 'A za 5 zł?', 'text', '2025-06-19 18:13:05.326470 +00:00');

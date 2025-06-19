@@ -1,0 +1,23 @@
+create table users
+(
+    id         uuid default gen_random_uuid() not null
+        primary key,
+    username   text                           not null,
+    password   text                           not null,
+    role       text                           not null
+        constraint chk_users_role
+            check (role = ANY (ARRAY ['seller'::text, 'customer'::text])),
+    created_at timestamp with time zone,
+    updated_at timestamp with time zone
+);
+
+alter table users
+    owner to postgres;
+
+create unique index idx_users_username
+    on users (username);
+
+INSERT INTO public.users (id, username, password, role, created_at, updated_at) VALUES ('46a0e047-503b-4d32-8e62-acbf0b5a7ca2', 'SuperStore', '$2a$10$iGNHHqonzLNABSi0a3ktU.nF4bdB/4AF4XVHKLOdtV6IQZfDaZRSi', 'seller', '2025-06-15 16:30:43.242646 +00:00', '2025-06-15 16:30:43.242646 +00:00');
+INSERT INTO public.users (id, username, password, role, created_at, updated_at) VALUES ('d9a76988-e0d1-4e68-901b-6780c3ca233d', 'GadgetGalaxy', '$2a$10$R99H2vN2SN/xJIXQAgpYT.qGtKhj6eMeE2biCAjSf6VXSMialfZbC', 'seller', '2025-06-15 16:30:43.245629 +00:00', '2025-06-15 16:30:43.245629 +00:00');
+INSERT INTO public.users (id, username, password, role, created_at, updated_at) VALUES ('e7bc18d6-d874-4691-a320-03aca6b87652', 'Alice', '$2a$10$p.RvXhJMCwZJaicpYtU3DePYz28HU6TRAaBxHT3HRA83tMpj/fIVq', 'customer', '2025-06-15 16:30:43.245957 +00:00', '2025-06-15 16:30:43.245957 +00:00');
+INSERT INTO public.users (id, username, password, role, created_at, updated_at) VALUES ('5e242ee5-21d5-43d2-9e3c-68d97e9f8c37', 'Bob', '$2a$10$Wd1rEuUvmBQBBIH.UZF5O.KFaDrq.BDqPDnQIDcYW0SEvDj2ed59G', 'customer', '2025-06-15 16:30:43.246203 +00:00', '2025-06-15 16:30:43.246203 +00:00');

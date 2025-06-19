@@ -1,0 +1,44 @@
+create table chat_room_users
+(
+    id        bigserial
+        primary key,
+    room_id   uuid not null
+        constraint fk_chat_rooms_participants
+            references chat_rooms,
+    user_id   uuid not null
+        constraint fk_chat_room_users_user
+            references users,
+    joined_at timestamp with time zone default CURRENT_TIMESTAMP
+);
+
+alter table chat_room_users
+    owner to postgres;
+
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (1, '773a010c-ede5-4c2a-aef9-5636fb6faab4', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 19:38:42.394953 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (2, '0c75ce03-614f-4a7c-9ffa-33fde8fc4f69', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 19:38:42.395017 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (3, '8d85db71-0ce1-4818-95f7-e362f9b13f6d', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 19:39:44.883421 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (4, 'a1257617-4f9e-43ef-a76e-2987143882e7', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 19:39:44.883465 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (6, 'c32891f2-1812-4bf8-b933-be8cf4c02ef7', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 19:40:18.364661 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (5, '35696682-dec5-4aa1-827e-add234430a5a', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 19:40:18.364807 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (7, '4b661387-3d1f-4d97-aa6d-739ec2237f67', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 19:41:54.755749 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (8, '83d24e2f-0681-446e-b6ed-d621001ce546', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 19:41:54.991666 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (9, 'f4ff6b92-e054-454e-babd-d9a93b82e863', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 19:42:40.578557 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (10, '857cd7bd-df60-4298-9c03-2120ac52afca', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 19:42:40.581772 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (12, '8a78f450-b1d0-4d12-a13b-23e582021b8b', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 19:43:15.076501 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (11, '722f7ac9-ee2e-4aa4-9f29-25601ffb737d', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 19:43:15.076408 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (13, '8a78f450-b1d0-4d12-a13b-23e582021b8b', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 21:47:43.348000 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (14, '722f7ac9-ee2e-4aa4-9f29-25601ffb737d', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 21:47:45.445000 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (15, '5f8c5062-a2b0-47e3-914a-4ab9cee28c5a', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 20:03:29.591188 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (16, 'f03b9d0f-79a2-4b23-9971-7cd7ad1188ac', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 20:03:29.647586 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (17, '7e2a89d9-7861-41e0-b3fd-5510a559b62d', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 22:08:00.993804 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (18, '7e2a89d9-7861-41e0-b3fd-5510a559b62d', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 22:08:00.999823 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (19, '6570193c-5fbb-4a25-aac9-95cad3f2c7f4', 'e7bc18d6-d874-4691-a320-03aca6b87652', '2025-06-17 22:08:01.059025 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (20, '6570193c-5fbb-4a25-aac9-95cad3f2c7f4', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 22:08:01.059867 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (21, '64ae9a61-558a-4c55-b185-0532840d4d59', 'd9a76988-e0d1-4e68-901b-6780c3ca233d', '2025-06-17 22:09:03.727049 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (22, '1369d9be-eabe-41e6-8438-4c9a5995d8a8', 'd9a76988-e0d1-4e68-901b-6780c3ca233d', '2025-06-17 22:09:03.727505 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (23, '64ae9a61-558a-4c55-b185-0532840d4d59', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 22:09:03.727785 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (24, '1369d9be-eabe-41e6-8438-4c9a5995d8a8', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-17 22:09:03.728295 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (25, '2a4ef366-5d8b-4157-b247-6f506493a35a', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-19 17:51:09.630151 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (26, '39fad217-5ee8-43ed-b353-35241a3c4ae9', '46a0e047-503b-4d32-8e62-acbf0b5a7ca2', '2025-06-19 17:51:09.630047 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (28, '39fad217-5ee8-43ed-b353-35241a3c4ae9', 'd9a76988-e0d1-4e68-901b-6780c3ca233d', '2025-06-19 17:51:09.633723 +00:00');
+INSERT INTO public.chat_room_users (id, room_id, user_id, joined_at) VALUES (27, '2a4ef366-5d8b-4157-b247-6f506493a35a', 'd9a76988-e0d1-4e68-901b-6780c3ca233d', '2025-06-19 17:51:09.633523 +00:00');
