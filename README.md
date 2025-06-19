@@ -14,5 +14,5 @@ This contains everything you need to run your app locally.
    `npm run dev`
 
    RUN the backend
-   cd backend
-   make run 
+   `cd backend`
+   `make run `
